@@ -1,0 +1,150 @@
+﻿<Window x:Class="FidelSolver.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FidelSolver"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="800">
+    <Window.Resources>
+        <BitmapImage x:Key="bg_rock_base_image" UriSource="imgs/bg_rock.png"/>
+
+        <!--#region bitmaps-->
+        <BitmapImage x:Key="aliens_image" UriSource="imgs/aliens.png" />
+        <BitmapImage x:Key="ball_image" UriSource="imgs/ball.png" />
+        <BitmapImage x:Key="chess_image" UriSource="imgs/chess_pieces.png" />
+        <BitmapImage x:Key="chest_mimic_image" UriSource="imgs/chest_mimic.png" />
+        <BitmapImage x:Key="crown_image" UriSource="imgs/crown.png" />
+        <BitmapImage x:Key="boss_robot_image" UriSource="imgs/doggobot.png" />
+        <BitmapImage x:Key="dragon_base_body_image" UriSource="imgs/dragon_body.png" />
+        <BitmapImage x:Key="dragon_base_eye_image" UriSource="imgs/dragon_eye.png" />
+        <BitmapImage x:Key="dragon_base_fire_image" UriSource="imgs/dragon_fire.png" />
+        <BitmapImage x:Key="dragon_base_heart_image" UriSource="imgs/dragon_heart.png" />
+        <BitmapImage x:Key="dragon_base_mouth_image" UriSource="imgs/dragon_mouth.png" />
+        <BitmapImage x:Key="dragon_base_wind_image" UriSource="imgs/dragon_wind.png" />
+        <BitmapImage x:Key="dragon_base_wing_image" UriSource="imgs/dragon_wing.png" />
+        <BitmapImage x:Key="fanatic_image" UriSource="imgs/fanatic.png" />
+        <BitmapImage x:Key="fidel_base_image" UriSource="imgs/fidel_base.png" />
+        <BitmapImage x:Key="gnome_image" UriSource="imgs/gnome.png" />
+        <BitmapImage x:Key="leash_base_image" UriSource="imgs/leash.png" />
+        <BitmapImage x:Key="lever_image" UriSource="imgs/lever.png" />
+        <BitmapImage x:Key="medkit_robot_image" UriSource="imgs/medkit_robot.png" />
+        <BitmapImage x:Key="mimic_big_image" UriSource="imgs/mimic_big.png" />
+        <BitmapImage x:Key="mushroom_image" UriSource="imgs/mushroom.png" />
+        <BitmapImage x:Key="nosferatu_base_image" UriSource="imgs/nosferatu.png" />
+        <BitmapImage x:Key="plant_image" UriSource="imgs/plant.png" />
+        <BitmapImage x:Key="spider_base_red" UriSource="imgs/red_spider.png" />
+        <BitmapImage x:Key="robot_image" UriSource="imgs/robot.png" />
+        <BitmapImage x:Key="snake_image" UriSource="imgs/snake.png" />
+        <BitmapImage x:Key="spider_base_image" UriSource="imgs/spider.png" />
+        <BitmapImage x:Key="spider_baby_image" UriSource="imgs/spider_baby.png" />
+        <BitmapImage x:Key="stairs_image_image" UriSource="imgs/stairs.png" />
+        <BitmapImage x:Key="block_robot_image" UriSource="imgs/tile_block_robot.png" />
+        <BitmapImage x:Key="block_vine_image" UriSource="imgs/tile_block_vines.png" />
+        <BitmapImage x:Key="block_volcano_image" UriSource="imgs/tile_block_volcano.png" />
+        <BitmapImage x:Key="trap_simple_image" UriSource="imgs/trap.png" />
+        <BitmapImage x:Key="trap_image" UriSource="imgs/trapdoor.png" />
+        <BitmapImage x:Key="turtle_base_image" UriSource="imgs/turtle.png" />
+        <BitmapImage x:Key="turtle_elite_image" UriSource="imgs/turtle_elite.png" />
+        <BitmapImage x:Key="spider_yellow_small" UriSource="imgs/yellow_spider.png" />
+        <BitmapImage x:Key="spider_yellow_big" UriSource="imgs/yellow_spider_big.png" />
+        <!--#endregion-->
+
+        <CroppedBitmap x:Key="fidel_base_idle_1" Source="{StaticResource fidel_base_image}" SourceRect="49 0 49 47" />
+        <CroppedBitmap x:Key="fidel_base_idle_2" Source="{StaticResource fidel_base_image}" SourceRect="98,0,49,47"/>
+
+        <CroppedBitmap x:Key="spider_base_idle_1" Source="{StaticResource spider_base_image}" SourceRect="55,0,55,47"/>
+
+        <CroppedBitmap x:Key="mushroom_untouched" Source="{StaticResource mushroom_image}" SourceRect="71,0,71,72"/>
+
+        <CroppedBitmap x:Key="alien_boss_idle_1" Source="{StaticResource aliens_image}" SourceRect="61,0,61,61"/>
+        <CroppedBitmap x:Key="alien_idle_1" Source="{StaticResource aliens_image}" SourceRect="61,183,61,61"/>
+
+        <CroppedBitmap x:Key="ball_idle" Source="{StaticResource ball_image}" SourceRect="64,178,17,17"/>
+
+        <CroppedBitmap x:Key="chess_rook" Source="{StaticResource chess_image}" SourceRect="49,0,49,69"/>
+        <CroppedBitmap x:Key="chess_bishop" Source="{StaticResource chess_image}" SourceRect="147,0,49,69"/>
+        <CroppedBitmap x:Key="chess_king" Source="{StaticResource chess_image}" SourceRect="245,0,49,69"/>
+        <CroppedBitmap x:Key="chess_horse" Source="{StaticResource chess_image}" SourceRect="343,0,49,69"/>
+        <CroppedBitmap x:Key="chess_block_tower" Source="{StaticResource chess_image}" SourceRect="441,0,49,69"/>
+
+        <CroppedBitmap x:Key="chest_closed" Source="{StaticResource chest_mimic_image}" SourceRect="55,0,55,55"/>
+        <CroppedBitmap x:Key="chest_open" Source="{StaticResource chest_mimic_image}" SourceRect="110,0,55,55"/>
+        <CroppedBitmap x:Key="chest_mimic_idle_1" Source="{StaticResource chest_mimic_image}" SourceRect="275,0,55,55"/>
+
+        <CroppedBitmap x:Key="crown_idle_1" Source="{StaticResource crown_image}" SourceRect="0,0,25,25"/>
+
+        <CroppedBitmap x:Key="boss_robot_idle_1" Source="{StaticResource boss_robot_image}" SourceRect="61,0,61,74"/>
+
+        <CroppedBitmap x:Key="dragon_base_body_spiked_2" Source="{StaticResource dragon_base_body_image}" SourceRect="55,0,55,55"/>
+        <CroppedBitmap x:Key="dragon_base_body_spiked_1" Source="{StaticResource dragon_base_body_image}" SourceRect="110,0,55,55"/>
+        <CroppedBitmap x:Key="dragon_base_body_spiked_0" Source="{StaticResource dragon_base_body_image}" SourceRect="165,0,55,55"/>
+        <CroppedBitmap x:Key="dragon_base_body_foot_right" Source="{StaticResource dragon_base_body_image}" SourceRect="385,0,55,55"/>
+        <CroppedBitmap x:Key="dragon_base_body_foot_left" Source="{StaticResource dragon_base_body_image}" SourceRect="440,0,55,55"/>
+        <CroppedBitmap x:Key="dragon_base_eye_const" Source="{StaticResource dragon_base_eye_image}" SourceRect="270,45,45,45"/>
+        <CroppedBitmap x:Key="dragon_base_fire_high_1" Source="{StaticResource dragon_base_fire_image}" SourceRect="0,0,60,65"/>
+        <CroppedBitmap x:Key="dragon_base_fire_low_1" Source="{StaticResource dragon_base_fire_image}" SourceRect="420,0,60,65"/>
+        <CroppedBitmap x:Key="dragon_base_heart_idle_1" Source="{StaticResource dragon_base_heart_image}" SourceRect="46,0,43,51"/>
+        <CroppedBitmap x:Key="dragon_base_mouth_idle_1" Source="{StaticResource dragon_base_mouth_image}" SourceRect="129,0,43,48"/>
+        <CroppedBitmap x:Key="dragon_base_wind_idle_X" Source="{StaticResource dragon_base_wind_image}" SourceRect="120,60,60,60"/>
+        <CroppedBitmap x:Key="dragon_base_wing_idle_1" Source="{StaticResource dragon_base_wing_image}" SourceRect="180,0,90,90"/>
+
+        <CroppedBitmap x:Key="fanatic_base_sleeping_idle_1" Source="{StaticResource fanatic_image}" SourceRect="57,0,57,70"/>
+        <CroppedBitmap x:Key="fanatic_base_awake_idle_1" Source="{StaticResource fanatic_image}" SourceRect="0,140,57,70"/>
+        <CroppedBitmap x:Key="fanatic_pedestal" Source="{StaticResource fanatic_image}" SourceRect="0,420,57,70"/>
+        <CroppedBitmap x:Key="fanatic_idol" Source="{StaticResource fanatic_image}" SourceRect="57,420,57,70"/>
+
+        <CroppedBitmap x:Key="gnome_base_awake_X" Source="{StaticResource gnome_image}" SourceRect="98,0,49,47"/>
+        <CroppedBitmap x:Key="gnome_base_asleep_X" Source="{StaticResource gnome_image}" SourceRect="196,235,49,47"/>
+
+        <CroppedBitmap x:Key="leash_base_horizontal_X" Source="{StaticResource leash_base_image}" SourceRect="98,54,49,54"/>
+        <CroppedBitmap x:Key="leash_base_vertical_X" Source="{StaticResource leash_base_image}" SourceRect="49,108,49,54"/>
+        <CroppedBitmap x:Key="leash_base_corner_rd" Source="{StaticResource leash_base_image}" SourceRect="49,54,49,54"/>
+        <CroppedBitmap x:Key="leash_base_corner_ld" Source="{StaticResource leash_base_image}" SourceRect="147,54,49,54"/>
+        <CroppedBitmap x:Key="leash_base_corner_ur" Source="{StaticResource leash_base_image}" SourceRect="49,162,49,54"/>
+        <CroppedBitmap x:Key="leash_base_corner_ul" Source="{StaticResource leash_base_image}" SourceRect="147,162,49,54"/>
+        <CroppedBitmap x:Key="leash_base_stair_right_down" Source="{StaticResource leash_base_image}" SourceRect="0,216,49,54"/>
+        <CroppedBitmap x:Key="leash_base_stair_right_up" Source="{StaticResource leash_base_image}" SourceRect="0,270,49,54"/>
+        <CroppedBitmap x:Key="leash_base_stair_left_down" Source="{StaticResource leash_base_image}" SourceRect="147,216,49,54"/>
+        <CroppedBitmap x:Key="leash_base_stair_left_up" Source="{StaticResource leash_base_image}" SourceRect="147,270,49,54"/>
+        <CroppedBitmap x:Key="leash_base_stair_right_return" Source="{StaticResource leash_base_image}" SourceRect="49,216,49,54"/>
+        <CroppedBitmap x:Key="leash_base_stair_right_straight" Source="{StaticResource leash_base_image}" SourceRect="98,216,49,54"/>
+        <CroppedBitmap x:Key="leash_base_stair_right_stop" Source="{StaticResource leash_base_image}" SourceRect="49,270,49,54"/>
+        <CroppedBitmap x:Key="leash_base_stair_left_stop" Source="{StaticResource leash_base_image}" SourceRect="98,270,49,54"/>
+        <CroppedBitmap x:Key="leash_base_right_stop" Source="{StaticResource leash_base_image}" SourceRect="49,0,49,54"/>
+        <CroppedBitmap x:Key="leash_base_left_stop" Source="{StaticResource leash_base_image}" SourceRect="147,0,49,54"/>
+        <CroppedBitmap x:Key="leash_base_down_stop" Source="{StaticResource leash_base_image}" SourceRect="0,54,49,54"/>
+        <CroppedBitmap x:Key="leash_base_up_stop" Source="{StaticResource leash_base_image}" SourceRect="0,162,49,54"/>
+
+        <CroppedBitmap x:Key="lever_base_unturned" Source="{StaticResource lever_image}" SourceRect="49,0,49,45"/>
+        <CroppedBitmap x:Key="lever_base_turned" Source="{StaticResource lever_image}" SourceRect="343,0,49,45"/>
+
+        <CroppedBitmap x:Key="medkit_robot_idle_1" Source="{StaticResource medkit_robot_image}" SourceRect="46,0,46,38"/>
+
+        <CroppedBitmap x:Key="mimic_big_untouched" Source="{StaticResource mimic_big_image}" SourceRect="165,0,55,55"/>
+        <CroppedBitmap x:Key="mimic_big_keyed" Source="{StaticResource mimic_big_image}" SourceRect="220,0,55,55"/>
+        <CroppedBitmap x:Key="mimic_big_defeated" Source="{StaticResource mimic_big_image}" SourceRect="385,165,55,55"/>
+    </Window.Resources>
+    <Grid>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="78" Margin="710,10,0,0" VerticalAlignment="Top" Source="{DynamicResource crown_image}" Width="72"/>
+        
+        <Button x:Name="button" Content="Break" HorizontalAlignment="Left" Height="50" Margin="10,709,0,0" VerticalAlignment="Top" Width="100" Click="button_Click"/>
+        <!--#region item_rects-->
+        <!--#endregion-->
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="340" Margin="374,10,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="list_click">
+            <ListBoxItem Content="spider"/>
+            <ListBoxItem Content="spider with crown"/>
+            <ListBoxItem Content="health kit"/>
+            <ListBoxItem Content="coin"/>
+            <ListBoxItem Content="next level"/>
+            <ListBoxItem Content="mushroom"/>
+            <ListBoxItem Content="chest"/>
+            <ListBoxItem Content="mimic"/>
+            <ListBoxItem Content="alien"/>
+            <ListBoxItem Content="alien boss"/>
+        </ListBox>
+        <Canvas x:Name="gridCanvas" HorizontalAlignment="Left" Height="350" VerticalAlignment="Top" Width="369"/>
+
+    </Grid>
+</Window>
